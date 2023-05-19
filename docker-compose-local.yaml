@@ -1,0 +1,16 @@
+version: "3.0"
+services:
+  db:
+    container_name: "db"
+    image: postgres:15.2-alpine
+    restart: "no"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    networks:
+      - custom
+networks:
+  custom:
