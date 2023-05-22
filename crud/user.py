@@ -4,6 +4,7 @@ from typing import List
 from db.database import get_session
 from db.models import User
 from schemas import UserCreate, UserOut
+from core.security import Security
 
 from sqlalchemy import select
 
@@ -16,7 +17,7 @@ class UserService:
             user = User(
                 username=user_data.username,
                 email=user_data.email,
-                hashed_password=user_data.password,
+                hashed_password=Security.hash_password(user_data.password),
                 created=datetime.datetime.utcnow(),
                 logged_in=datetime.datetime.utcnow()
             )
@@ -46,6 +47,7 @@ class UserService:
             user = query.scalars().first()
             user.username = user_data.username
             user.email = user_data.email
+            user.hashed_password = Security.hash_password(user_data.password)
             await session.commit()
             await session.refresh(user)
             return user
