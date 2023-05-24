@@ -2,9 +2,9 @@ import datetime
 from typing import List
 from sqlalchemy import select
 
-from db.database import get_session
-from schemas import PostCreate, PostOut
-from db.models import Post
+from app.db.database import get_session
+from app.schemas import PostCreate, PostOut
+from app.db.models import Post
 
 
 class PostService:

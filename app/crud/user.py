@@ -1,10 +1,10 @@
 import datetime
 from typing import List
 
-from db.database import get_session
-from db.models import User
-from schemas import UserCreate, UserOut
-from core.security import Security
+from app.db.database import get_session
+from app.db.models import User
+from app.schemas import UserCreate, UserOut
+from app.core.security import Security
 
 from sqlalchemy import select
 

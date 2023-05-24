@@ -2,10 +2,10 @@ import datetime
 
 from fastapi import Depends, HTTPException, status
 
-from db.database import get_session
-from db.models import User
-from schemas import UserCreate, UserOut, Token
-from core.security import Security
+from app.db.database import get_session
+from app.db.models import User
+from app.schemas import UserCreate, UserOut, Token
+from app.core.security import Security
 
 from sqlalchemy import select
 

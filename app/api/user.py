@@ -1,9 +1,7 @@
-from typing import List
-
 from fastapi import APIRouter, Depends, Response, status
-from schemas import UserCreate, UserOut
-from crud.user import UserService
-from core.depends import get_current_user
+from app.schemas import UserCreate, UserOut
+from app.crud.user import UserService
+from app.core.depends import get_current_user
 
 
 router = APIRouter(

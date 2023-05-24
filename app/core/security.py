@@ -5,8 +5,8 @@ from passlib.hash import bcrypt
 from jose import jwt, JWTError
 from pydantic import ValidationError
 
-from db.models import User
-from schemas import Token, UserOut
+from app.db.models import User
+from app.schemas import Token, UserOut
 from .config import settings
 
 

@@ -1,9 +1,9 @@
 from typing import List
 
 from fastapi import APIRouter, Depends, Response, status
-from schemas import PostCreate, PostOut, UserOut
-from crud.post import PostService
-from core.depends import get_current_user
+from app.schemas import PostCreate, PostOut, UserOut
+from app.crud.post import PostService
+from app.core.depends import get_current_user
 
 
 router = APIRouter(

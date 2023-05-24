@@ -1,7 +1,7 @@
 from fastapi import Depends
 from fastapi.security import OAuth2PasswordBearer
 
-from schemas import UserOut, UserInfo
+from app.schemas import UserOut
 from .security import Security
 
 
