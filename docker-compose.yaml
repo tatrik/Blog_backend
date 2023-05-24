@@ -1,0 +1,32 @@
+version: "3.9"
+
+networks:
+  custom:
+
+volumes:
+  db:
+
+services:
+  db:
+    container_name: "db"
+    image: postgres:15.2-alpine
+    volumes:
+      - "db:/var/lib/postgresql/data"
+    restart: "no"
+    env_file:
+      - .env_example
+    expose:
+      - 5432
+    networks:
+      - custom
+  web:
+    build: .
+    command: python main.py
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env_example
+    depends_on:
+      - db
+    networks:
+      - custom

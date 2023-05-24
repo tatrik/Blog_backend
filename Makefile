@@ -1,8 +1,11 @@
-up:
-	docker compose -f docker-compose-local.yaml up -d
-
-down:
-	docker compose -f docker-compose-local.yaml down && docker network prune --force
+build:
+	docker-compose -f docker-compose.yaml build
 
 migrations:
-	alembic upgrade head
+	docker-compose -f docker-compose.yaml run web alembic upgrade head
+
+up:
+	docker compose -f docker-compose.yaml up
+
+down:
+	docker compose -f docker-compose.yaml down && docker network prune --force
