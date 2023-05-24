@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from fastapi.security import OAuth2PasswordRequestForm
 
 from app.schemas import UserCreate, UserOut, Token
-from app.crud import AuthService
+from app.crud.auth import AuthService
 
 router = APIRouter(
     prefix="/auth",
