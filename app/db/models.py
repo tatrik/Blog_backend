@@ -1,7 +1,7 @@
 import datetime
 
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
 
@@ -15,6 +15,7 @@ class User(Base):
     hashed_password = Column(String, nullable=False)
     created = Column(DateTime, default=datetime.datetime.utcnow)
     logged_in = Column(DateTime, default=datetime.datetime.utcnow)
+    post = relationship("Post", order_by="Post.id", back_populates="owner", cascade="all, delete, delete-orphan")
 
 
 class Post(Base):
@@ -25,3 +26,4 @@ class Post(Base):
     title = Column(String, nullable=False)
     description = Column(String, nullable=True)
     created = Column(DateTime, default=datetime.datetime.utcnow)
+    owner = relationship("User", back_populates="post")

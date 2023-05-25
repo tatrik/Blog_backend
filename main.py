@@ -7,7 +7,9 @@ from app.api import router
 
 
 app = FastAPI(
-    title="MIniBlog"
+    title="MiniBlog",
+    description="Registering and creating posts",
+    version='1.0.0'
 )
 app.include_router(router)
 

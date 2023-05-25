@@ -12,7 +12,7 @@ services:
     image: postgres:15.2-alpine
     volumes:
       - "db:/var/lib/postgresql/data"
-    restart: "no"
+    restart: "always"
     env_file:
       - .env_example
     expose:

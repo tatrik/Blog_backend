@@ -5,7 +5,7 @@ migrations:
 	docker-compose -f docker-compose.yaml run web alembic upgrade head
 
 up:
-	docker compose -f docker-compose.yaml up
+	docker compose -f docker-compose.yaml up -d
 
 down:
 	docker compose -f docker-compose.yaml down && docker network prune --force

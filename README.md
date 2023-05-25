@@ -28,7 +28,7 @@ This project implements:
 
 and go to:
 
-    http://localhost:8000
+[http://localhost:8000/docs](http://localhost:8000/docs)
 
 ## How to stop and destroy
 

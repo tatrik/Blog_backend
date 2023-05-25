@@ -3,8 +3,8 @@ from contextlib import asynccontextmanager
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
 
-# from app.core.config import settings
-DATABASE_URL = os.environ["DATABASE_URL"]
+# from app.core.config import DATABASE_URL # local develop
+DATABASE_URL = os.environ["DATABASE_URL"]   # docker deploy
 
 engine = create_async_engine(
     DATABASE_URL,
